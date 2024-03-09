@@ -1,4 +1,4 @@
-module gitub.com/ryanskidmore/sqlite-libsql
+module github.com/ryanskidmore/sqlite-libsql
 
 go 1.20
 
