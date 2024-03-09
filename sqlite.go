@@ -1,22 +1,22 @@
-package sqlite
+package libsql
 
 import (
 	"context"
 	"database/sql"
 	"strconv"
 
-	"gorm.io/gorm/callbacks"
-
-	_ "github.com/mattn/go-sqlite3"
+	_ "github.com/tursodatabase/libsql-client-go/libsql"
 	"gorm.io/gorm"
+	"gorm.io/gorm/callbacks"
 	"gorm.io/gorm/clause"
 	"gorm.io/gorm/logger"
 	"gorm.io/gorm/migrator"
 	"gorm.io/gorm/schema"
+	_ "modernc.org/sqlite"
 )
 
-// DriverName is the default driver name for SQLite.
-const DriverName = "sqlite3"
+// DriverName is the default driver name for LibSQL.
+const DriverName = "libsql"
 
 type Dialector struct {
 	DriverName string
@@ -29,7 +29,7 @@ func Open(dsn string) gorm.Dialector {
 }
 
 func (dialector Dialector) Name() string {
-	return "sqlite"
+	return "libsql"
 }
 
 func (dialector Dialector) Initialize(db *gorm.DB) (err error) {
